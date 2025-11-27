@@ -28,47 +28,61 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+    const btnBlock = document.querySelector('.btn-block');
 
-    // Form Submission with EmailJS
-    const form = document.getElementById('contactForm');
-    if (form) {
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const btn = form.querySelector('button[type="submit"]');
+    if (btnBlock) {
+        btnBlock.addEventListener('click', () => {
+            const btn = btnBlock.querySelector('button[type="submit"]');
             const originalText = btn.innerText;
 
             btn.innerText = 'Sending...';
             btn.disabled = true;
 
-            // Replace these with your actual EmailJS Service ID and Template ID
-            const serviceID = 'service_uoj9m0c';
-            const templateID = 'template_tad8wlb';
+            // Redirect the user
+            window.location.href = "https://alvo.chat/6UHF";
 
-            emailjs.sendForm(serviceID, templateID, form)
-                .then(() => {
-                    btn.innerText = 'Message Sent!';
-                    btn.style.backgroundColor = '#10B981';
-                    form.reset();
-
-                    setTimeout(() => {
-                        btn.innerText = originalText;
-                        btn.disabled = false;
-                        btn.style.backgroundColor = '';
-                    }, 3000);
-                }, (err) => {
-                    btn.innerText = 'Error!';
-                    btn.style.backgroundColor = '#EF4444';
-                    console.error('EmailJS Error:', err);
-                    alert('Failed to send message. Please try again later.');
-
-                    setTimeout(() => {
-                        btn.innerText = originalText;
-                        btn.disabled = false;
-                        btn.style.backgroundColor = '';
-                    }, 3000);
-                });
-        });
+        })
     }
+    // Form Submission with EmailJS
+    // const form = document.getElementById('contactForm');
+    // if (form) {
+    //     form.addEventListener('submit', (e) => {
+    //         e.preventDefault();
+    //         const btn = form.querySelector('button[type="submit"]');
+    //         const originalText = btn.innerText;
+
+    //         btn.innerText = 'Sending...';
+    //         btn.disabled = true;
+
+    //         // Replace these with your actual EmailJS Service ID and Template ID
+    //         const serviceID = 'service_uoj9m0c';
+    //         const templateID = 'template_tad8wlb';
+
+    //         emailjs.sendForm(serviceID, templateID, form)
+    //             .then(() => {
+    //                 btn.innerText = 'Message Sent!';
+    //                 btn.style.backgroundColor = '#10B981';
+    //                 form.reset();
+
+    //                 setTimeout(() => {
+    //                     btn.innerText = originalText;
+    //                     btn.disabled = false;
+    //                     btn.style.backgroundColor = '';
+    //                 }, 3000);
+    //             }, (err) => {
+    //                 btn.innerText = 'Error!';
+    //                 btn.style.backgroundColor = '#EF4444';
+    //                 console.error('EmailJS Error:', err);
+    //                 alert('Failed to send message. Please try again later.');
+
+    //                 setTimeout(() => {
+    //                     btn.innerText = originalText;
+    //                     btn.disabled = false;
+    //                     btn.style.backgroundColor = '';
+    //                 }, 3000);
+    //             });
+    //     });
+    // }
 
     // Intersection Observer for Fade-in Animations
     const observerOptions = {
