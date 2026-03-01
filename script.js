@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }, observerOptions);
 
-    document.querySelectorAll('.service-card, .industry-item, .comparison-card, .pricing-card').forEach(el => {
+    document.querySelectorAll('.service-card, .contact-card, .comparison-card, .pricing-card').forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';
         el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
